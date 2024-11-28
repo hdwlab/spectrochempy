@@ -25,8 +25,15 @@ import traceback
 import docrep
 import matplotlib.pyplot as plt
 import numpy
-from numpydoc.docscrape import get_doc_object
-from numpydoc.validate import Validator, error, validate
+try:
+    from numpydoc.docscrape import get_doc_object
+    from numpydoc.validate import Validator, error, validate
+    IS_NUMPYDOC_AVAILABLE = True
+except ImportError:
+    IS_NUMPYDOC_AVAILABLE = False
+
+    class Validator:
+        pass
 
 # With template backend, matplotlib plots nothing
 # matplotlib.use("template")
@@ -257,6 +264,8 @@ def spectrochempy_validate(func_name, exclude=[]):
     dict
         Information about the docstring and the errors found.
     """
+    if not IS_NUMPYDOC_AVAILABLE:
+        raise ImportError("numpydoc is not available. Please install via `pip install numpydoc`.")
     func_obj = Validator._load_obj(func_name)
     doc_obj = get_doc_object(func_obj)
     doc = SpectroChemPyDocstring(func_name, doc_obj)

@@ -8,7 +8,6 @@ requirements[_dev][_test].text, environment[_dev][_test].yml and .conda/meta.yam
 be created or updated accordingly
 #}
     # specific dependencies
-    - brukeropusreader
     - quaternion
 {% if CANTERA -%}
     - cantera
@@ -19,11 +18,11 @@ be created or updated accordingly
     - dill
     - docrep
     - ipython
+    - ipywidgets
     - jinja2
     - matplotlib>=3.8
     - numba
     - numpy<2.0
-    - numpydoc>=1.2
     - osqp
     - packaging
     - pint>=0.24
@@ -39,22 +38,7 @@ be created or updated accordingly
     # dependencies needed mainly for install and a bit more ...
     - setuptools
     - setuptools_scm
-    - git
 
-    # Jupyter lab
-    - ipywidgets=8.0.4
-    - ipympl
-    - jupyterlab
-    - jupyterlab_widgets
-    - jupyter_events=0.6.3
-    - jupyter_server
-    - pyzmq=25.1.2
-    - nodejs
-    - widgetsnbextension=4.0.5
-
-    # voila
-    - voila
-    - voila-material
 
 {%- if TEST %}
 
@@ -97,4 +81,19 @@ be created or updated accordingly
     - sphinx-gallery=0.13
     - sphinx_rtd_theme=1.2
     - sphinxcontrib-bibtex
+
+    # MOVE from base
+    - brukeropusreader
+    - numpydoc>=1.2
+    - ipywidgets=8.0.4
+    - ipympl
+    - jupyterlab
+    - jupyterlab_widgets
+    - jupyter_events=0.6.3
+    - jupyter_server
+    - pyzmq=25.1.2
+    - nodejs
+    - widgetsnbextension=4.0.5
+    - voila
+    - voila-material
 {%- endif %}

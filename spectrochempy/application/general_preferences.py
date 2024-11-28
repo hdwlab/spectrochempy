@@ -29,7 +29,7 @@ class GeneralPreferences(MetaConfigurable):
     # Configuration entries
     # ----------------------------------------------------------------------------------
     # NON GUI
-    show_info_on_loading = tr.Bool(True, help="Display info on loading").tag(
+    show_info_on_loading = tr.Bool(False, help="Display info on loading").tag(
         config=True
     )
     use_qt = tr.Bool(

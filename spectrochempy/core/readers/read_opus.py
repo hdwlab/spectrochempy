@@ -13,7 +13,12 @@ __dataset_methods__ = __all__
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
-from brukeropusreader.opus_parser import parse_data, parse_meta
+
+try:
+    from brukeropusreader.opus_parser import parse_data, parse_meta
+    IS_OPUS_READER_AVAILABLE = True
+except ImportError:
+    IS_OPUS_READER_AVAILABLE = False
 
 from spectrochempy.application import debug_
 from spectrochempy.core.dataset.coord import Coord
@@ -202,6 +207,11 @@ def _read_opus(*args, **kwargs):
 
 
 def _read_data(fid):
+    if not IS_OPUS_READER_AVAILABLE:
+        raise ImportError(
+            "The brukeropusreader package is required to read OPUS files. "
+            "Please install it with `pip install brukeropusreader`."
+        )
     data = fid.read()
     meta_data = parse_meta(data)
     opus_data = parse_data(data, meta_data)

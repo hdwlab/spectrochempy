@@ -7,18 +7,17 @@
 # See in `environment.yml` for more information.
 #
 # ======================================================================================
-brukeropusreader
 numpy-quaternion
 cffconvert>=2.0.0
 colorama
 dill
 docrep
 ipython
+ipywidgets
 jinja2
 matplotlib>=3.8
 numba
 numpy<2.0
-numpydoc>=1.2
 osqp
 packaging
 pint>=0.24
@@ -32,15 +31,3 @@ xlrd
 pyyaml
 setuptools
 setuptools_scm
-gitpython
-ipywidgets==8.0.4
-ipympl
-jupyterlab
-jupyterlab_widgets
-jupyter_events==0.6.3
-jupyter_server
-pyzmq==25.1.2
-nodejs
-widgetsnbextension==4.0.5
-voila
-voila-material
