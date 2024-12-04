@@ -126,7 +126,7 @@ def check_update(version):
             fil.unlink()
 
     # finally display the message if necessary
-    _display_needs_update_message()
+    # _display_needs_update_message()
 
 
 # ======================================================================================
